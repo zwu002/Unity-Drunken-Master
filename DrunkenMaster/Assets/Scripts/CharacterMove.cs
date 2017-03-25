@@ -43,7 +43,15 @@ public class CharacterMove : MonoBehaviour {
     {
         if (currentPlatformAndroid == false)
         {
-            position.x += Input.GetAxis("Horizontal") * speed * Time.deltaTime;
+            if (Input.GetKeyDown("d"))
+            {
+                position.x += 0.5f;
+            }
+
+            if (Input.GetKeyDown("a"))
+            {
+                position.x -= 0.5f;
+            }
 
             position.x = Mathf.Clamp(position.x, minPosX, maxPosX);
 
