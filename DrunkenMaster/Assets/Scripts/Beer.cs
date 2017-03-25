@@ -19,6 +19,5 @@ public class Beer : MonoBehaviour {
         {
             gameObject.SetActive(false);
         }
-
     }
 }

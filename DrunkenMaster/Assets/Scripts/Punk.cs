@@ -12,4 +12,12 @@ public class Punk : MonoBehaviour {
 	void Update () {
 	
 	}
+
+    void OnTriggerEnter(Collider col)
+    {
+        if (col.gameObject.tag == "Player")
+        {
+            gameObject.SetActive(false);
+        }
+    }
 }
