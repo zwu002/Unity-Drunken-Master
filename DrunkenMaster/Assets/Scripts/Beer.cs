@@ -3,10 +3,11 @@ using System.Collections;
 
 public class Beer : MonoBehaviour {
 
-	// Use this for initialization
+    public GameObject uiManager;
+
 	void Start () {
-	
-	}
+        uiManager = GameObject.Find("UIManager");
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -18,6 +19,9 @@ public class Beer : MonoBehaviour {
         if (col.gameObject.tag == "Player")
         {
             gameObject.SetActive(false);
+
+            uiManager.GetComponent<UIManager>().scoreUpdate();
+            uiManager.GetComponent<UIManager>().drunknessplus();
         }
     }
 }

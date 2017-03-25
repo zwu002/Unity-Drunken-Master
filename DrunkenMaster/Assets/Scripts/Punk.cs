@@ -3,10 +3,11 @@ using System.Collections;
 
 public class Punk : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
+    public GameObject uiManager;
+
+    void Start () {
+        uiManager = GameObject.Find("UIManager");
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -18,6 +19,9 @@ public class Punk : MonoBehaviour {
         if (col.gameObject.tag == "Player")
         {
             gameObject.SetActive(false);
+
+            uiManager.GetComponent<UIManager>().scoreUpdate();
+            uiManager.GetComponent<UIManager>().drunknessminus();
         }
     }
 }
