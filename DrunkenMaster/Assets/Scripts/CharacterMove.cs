@@ -11,12 +11,12 @@ public class CharacterMove : MonoBehaviour {
 
     bool currentPlatformAndroid = false;
 
-    Rigidbody2D rb;
+    Rigidbody rb;
 
     void Awake()
     {
 
-        rb = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody>();
 
 #if UNITY_ANDROID
         currentPlatformAndroid = true;
