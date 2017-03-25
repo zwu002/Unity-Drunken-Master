@@ -28,8 +28,27 @@ public class UIManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        scoreText.text = "Score: " + score;
-        distanceText.text = "Distance: " + distance;
-        drunknessText.text = "Drunkness: " + drunkness;
+        score += 10 * Time.deltaTime;
+        distance += Time.deltaTime;
+
+        scoreText.text = "Score: " + (int) score;
+        distanceText.text = "Distance: " + (int) distance;
+        drunknessText.text = "Drunkness: " + (int) drunkness;
+        drunkness -= Time.deltaTime;
+    }
+
+    public void scoreUpdate()
+    {
+        score += 100;
+    }
+
+    public void drunknessplus()
+    {
+        drunkness += 20;
+    }
+
+    public void drunknessminus()
+    {
+        drunkness -= 10;
     }
 }
