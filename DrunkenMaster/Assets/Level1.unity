@@ -235,6 +235,18 @@ Transform:
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: ed767b30c05b4704e84837d597e0a290, type: 3}
   m_PrefabInternal: {fileID: 132610510}
+--- !u!114 &570506696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 570506695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73e8187be70bbe84eaf88646a972473c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
 --- !u!65 &570506700
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -242,7 +254,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 570506695}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.022692457, y: 0.022692468, z: 0.031070177}
@@ -262,6 +274,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &570506703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 570506695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2eb48cfe8f77fd04a80d6c5637841317, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &645784745 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 18f9d87142b63ad42839dd7ace933c01, type: 3}
@@ -498,7 +521,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 95e4e868acc135447be1c26e863bc45e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.54
+      value: 0.489
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 95e4e868acc135447be1c26e863bc45e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -603,7 +626,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 18f9d87142b63ad42839dd7ace933c01, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.562
+      value: -3.264
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 18f9d87142b63ad42839dd7ace933c01, type: 3}
       propertyPath: m_LocalRotation.x
@@ -853,6 +876,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: be4db326d28878247b4402b3fdef7304, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be4db326d28878247b4402b3fdef7304, type: 3}
   m_IsPrefabParent: 0
@@ -860,6 +887,18 @@ Prefab:
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 95e4e868acc135447be1c26e863bc45e, type: 3}
   m_PrefabInternal: {fileID: 1169848171}
+--- !u!114 &1804656003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1804656002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73e8187be70bbe84eaf88646a972473c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
 --- !u!65 &1804656007
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -14,9 +14,6 @@ public class CleanMesh: MonoBehaviour {
 
     void OnCollisionEnter(Collision col)
     {
-        if (col.gameObject.tag == "Obstacle")
-        {
             col.gameObject.SetActive(false);
-        }
     }
 }
