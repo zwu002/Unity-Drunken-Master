@@ -51,4 +51,10 @@ public class UIManager : MonoBehaviour {
     {
         drunkness -= 10;
     }
+
+    public void hitobs()
+    {
+        drunkness -= 70;
+        score -= 300;
+    }
 }

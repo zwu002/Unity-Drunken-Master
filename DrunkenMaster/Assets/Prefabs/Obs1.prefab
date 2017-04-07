@@ -14,6 +14,7 @@ GameObject:
   - 54: {fileID: 5421794}
   - 65: {fileID: 6562560}
   - 114: {fileID: 11441464}
+  - 114: {fileID: 11421772}
   m_Layer: 0
   m_Name: Table
   m_TagString: Obstacle
@@ -55,7 +56,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 128028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.093000904, y: 0.09985783, z: -0.8953197}
+  m_LocalPosition: {x: -0.015404511, y: 0.09985791, z: -1.6068237}
   m_LocalScale: {x: 0.67450225, y: 0.67450243, z: 0.67450243}
   m_Children:
   - {fileID: 406426}
@@ -116,7 +117,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 107006}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.03, y: 0.04000001, z: 0.020000005}
@@ -138,6 +139,18 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11421772
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 107006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c8dd1b0c345c6e479f9b64978a3bdb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiManager: {fileID: 0}
 --- !u!114 &11441464
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -150,6 +163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
+  spawn: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
