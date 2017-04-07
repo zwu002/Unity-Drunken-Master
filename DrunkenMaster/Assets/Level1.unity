@@ -768,6 +768,7 @@ MonoBehaviour:
   pos: 0
   minPosZ: 1
   maxPosZ: 2
+  universalSpeed: 0
 --- !u!1 &1536679956 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: af0210977fb230549b2c7e2754e3c732, type: 3}

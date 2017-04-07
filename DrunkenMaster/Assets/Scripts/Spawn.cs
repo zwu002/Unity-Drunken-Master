@@ -9,12 +9,16 @@ public class Spawn : MonoBehaviour {
     public float pos;
     public float minPosZ;
     public float maxPosZ;
+    public float universalSpeed;
 
     float timer;
+    float speedupIndex;
     int obstacleIndex;
 
 	void Start () {
-        timer = 2f;
+        timer = 1f;
+        speedupIndex = 0;
+        universalSpeed = 1;
 	}
 	
 	void Update () {
@@ -38,8 +42,26 @@ public class Spawn : MonoBehaviour {
             }
 
             Instantiate(spawnObstacle[obstacleIndex], new Vector3(pos, 0.15f, Random.Range(minPosZ, maxPosZ)), Quaternion.identity);
+
+            speedupIndex++;
  
-            timer = Random.Range(0.4f, 1.5f);
+            timer = Random.Range(0.4f, 1f);
+
+            if (speedupIndex >= 20)
+            {
+                Speedup();
+                speedupIndex = 0;
+            }
         }
 	}
+
+    void Speedup()
+    {
+        universalSpeed += 0.2f;
+    }
+
+    void Speeddown()
+    {
+        universalSpeed -= 0.2f;
+    }
 }
