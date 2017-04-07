@@ -503,7 +503,10 @@ MonoBehaviour:
   gameOverScoreText: {fileID: 0}
   gameOverDistanceText: {fileID: 0}
   highScoreText: {fileID: 0}
-  buttons: []
+  buttons:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   uiManager: {fileID: 747112146}
 --- !u!4 &747112148
 Transform:

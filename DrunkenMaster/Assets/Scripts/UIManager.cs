@@ -74,25 +74,8 @@ public class UIManager : MonoBehaviour {
 
     public void Gameover ()
     {
-        gameOver = true;
-
-        gameOverScoreText.text = "YOUR SCORE" + "\r\n" + score;
-        gameOverDistanceText.text = "YOUR DISTANCE" + "\r\n" + distance;
-        gameOverScoreText.gameObject.SetActive(true);
-        gameOverDistanceText.gameObject.SetActive(true);
-
-        foreach (Button button in buttons)
-        {
-            button.gameObject.SetActive(true);
-        }
-
-        if (PlayerPrefs.GetInt("HighScore") < (int)score)
-        {
-            PlayerPrefs.SetInt("HighScore", (int)score);
-        }
-
         Time.timeScale = 0;
-}
+    }
 
     public void Replay()
     {
@@ -101,7 +84,7 @@ public class UIManager : MonoBehaviour {
 
     public void Menu()
     {
-        SceneManager.LoadScene("StartMenu");
+        SceneManager.LoadScene("startmenu");
     }
 
     public void Exit()
@@ -111,11 +94,11 @@ public class UIManager : MonoBehaviour {
 
     public void PlayLevelI()
     {
-        SceneManager.LoadScene("Level1");
+        SceneManager.LoadScene("level1");
     }
 
     public void PlayLevelII()
     {
-        SceneManager.LoadScene("Level2");
+        SceneManager.LoadScene("level2");
     }
 }
