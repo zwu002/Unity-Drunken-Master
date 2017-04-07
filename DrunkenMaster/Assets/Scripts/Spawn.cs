@@ -21,7 +21,7 @@ public class Spawn : MonoBehaviour {
         timer -= Time.deltaTime;
         if (timer <= 0)
         {
-            obstacleIndex = Random.Range(0, 3);
+            obstacleIndex = Random.Range(0, 4);
             randomPos = Random.Range(0, 3);
 
             if (randomPos == 0)
@@ -39,7 +39,7 @@ public class Spawn : MonoBehaviour {
 
             Instantiate(spawnObstacle[obstacleIndex], new Vector3(pos, 0.15f, Random.Range(minPosZ, maxPosZ)), Quaternion.identity);
  
-            timer = Random.Range(0.2f, 2f);
+            timer = Random.Range(0.4f, 1.5f);
         }
 	}
 }
