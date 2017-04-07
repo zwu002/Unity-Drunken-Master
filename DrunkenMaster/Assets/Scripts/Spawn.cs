@@ -47,7 +47,7 @@ public class Spawn : MonoBehaviour {
  
             timer = Random.Range(0.4f, 1f);
 
-            if (speedupIndex >= 20)
+            if (speedupIndex >= 10)
             {
                 Speedup();
                 speedupIndex = 0;
