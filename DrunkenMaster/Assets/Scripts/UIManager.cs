@@ -77,6 +77,32 @@ public class UIManager : MonoBehaviour {
         Time.timeScale = 0;
     }
 
+    public void Pause()
+    {
+        if (Time.timeScale == 1)
+        {
+            Time.timeScale = 0;
+
+            foreach (Button button in buttons)
+            {
+                button.gameObject.SetActive(true);
+            }
+
+        }
+
+        else if (Time.timeScale == 0)
+        {
+            Time.timeScale = 1;
+
+            // kill this when fixing UI
+            foreach (Button button in buttons)
+            {
+                button.gameObject.SetActive(false);
+            }
+
+        }
+    }
+
     public void Replay()
     {
         SceneManager.LoadScene(currentScene.name);

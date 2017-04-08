@@ -22,7 +22,7 @@ public class ObstacleMove : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        position.z -= 0.02f * speed;
+        position.z -= 0.02f * speed * Time.timeScale;
 
         transform.position = position;
 

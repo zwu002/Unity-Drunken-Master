@@ -45,12 +45,12 @@ public class CharacterMove : MonoBehaviour {
         {
             if (Input.GetKeyDown("d"))
             {
-                position.x += 0.5f;
+                position.x += 0.5f * Time.timeScale;
             }
 
             if (Input.GetKeyDown("a"))
             {
-                position.x -= 0.5f;
+                position.x -= 0.5f * Time.timeScale;
             }
 
             position.x = Mathf.Clamp(position.x, minPosX, maxPosX);
