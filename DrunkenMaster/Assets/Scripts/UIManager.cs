@@ -15,8 +15,8 @@ public class UIManager : MonoBehaviour {
     float coins;
     float diamonds;
 
-    int coinsOld;
-    int diamondsOld;
+    public int coinsOld;
+    public int diamondsOld;
 
     bool gameOver;
 
@@ -73,6 +73,8 @@ public class UIManager : MonoBehaviour {
         distanceText.text = "Distance: " + (int) distance;
         drunknessText.text = "Drunkness: " + (int) drunkness;
         drunkness -= Time.deltaTime;
+        coinText.text = "x " + coinsOld;
+        diamondText.text = "x " + diamondsOld;
 
         if (drunkness <= 0 || drunkness >= 100)
         {
