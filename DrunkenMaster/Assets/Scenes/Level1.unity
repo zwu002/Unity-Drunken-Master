@@ -41,7 +41,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 6
-  m_GIWorkflowMode: 1
+  m_GIWorkflowMode: 0
   m_LightmapsMode: 1
   m_GISettings:
     serializedVersion: 2
@@ -821,6 +821,8 @@ MonoBehaviour:
   minPosX: -0.5
   maxPosX: 0.5
   speed: 100
+  maxTime: 0.5
+  minSwipeDist: 50
 --- !u!65 &767936858
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1628,6 +1630,8 @@ MonoBehaviour:
   score: 0
   distance: 0
   coins: 0
+  coinsOld: 0
+  diamondsOld: 0
   scoreText: {fileID: 219201057}
   distanceText: {fileID: 1844842357}
   drunknessText: {fileID: 1188811022}

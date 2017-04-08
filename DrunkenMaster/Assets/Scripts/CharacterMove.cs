@@ -11,6 +11,18 @@ public class CharacterMove : MonoBehaviour {
 
     bool currentPlatformAndroid = false;
 
+    // swipe control for Android
+    public float maxTime;
+    public float minSwipeDist;
+
+    float startTime;
+    float endTime;
+
+    Vector3 startPos;
+    Vector3 endPos;
+    float swipeDistance;
+    float swipeTime;
+
     void Awake()
     {
 
@@ -52,6 +64,54 @@ public class CharacterMove : MonoBehaviour {
             position.x = Mathf.Clamp(position.x, minPosX, maxPosX);
 
             transform.position = position;
+        }
+        else
+        {
+            if (Input.touchCount > 0)
+            {
+                Touch touch = Input.GetTouch(0);
+                if (touch.phase == TouchPhase.Began)
+                {
+                    startTime = Time.time;
+                    startPos = touch.position;
+                }
+                else if (touch.phase == TouchPhase.Ended)
+                {
+                    endTime = Time.time;
+                    endPos = touch.position;
+
+                    swipeDistance = (endPos - startPos).magnitude;
+                    swipeTime = endTime - startTime;
+
+                    if (swipeTime < maxTime && swipeDistance > minSwipeDist)
+                    {
+                        Swipe();
+                    }
+                }
+
+                position.x = Mathf.Clamp(position.x, minPosX, maxPosX);
+
+                transform.position = position;
+
+            }
+        }
+    }
+
+    void Swipe()
+    {
+        Vector2 distance = endPos - startPos;
+        if (Mathf.Abs(distance.x) > Mathf.Abs(distance.y))
+        {
+            Debug.Log("Horizontal Swipe");
+
+            if (distance.x > 0)
+            {
+                position.x += 0.5f * Time.timeScale;
+            }
+            else if (distance.x < 0)
+            {
+                position.x -= 0.5f * Time.timeScale;
+            }
         }
     }
 }
