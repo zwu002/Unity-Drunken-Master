@@ -470,7 +470,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: x 0
+  m_Text: x ???
 --- !u!222 &484099586
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1456,7 +1456,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: x 0
+  m_Text: x ???
 --- !u!222 &1258626553
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1627,14 +1627,15 @@ MonoBehaviour:
   drunkness: 0
   score: 0
   distance: 0
+  coins: 0
   scoreText: {fileID: 219201057}
   distanceText: {fileID: 1844842357}
   drunknessText: {fileID: 1188811022}
   gameOverScoreText: {fileID: 0}
   gameOverDistanceText: {fileID: 0}
   highScoreText: {fileID: 1550822584}
-  coinText: {fileID: 0}
-  diamondText: {fileID: 0}
+  coinText: {fileID: 484099585}
+  diamondText: {fileID: 1258626552}
   buttons:
   - {fileID: 739771022}
   - {fileID: 167143165}

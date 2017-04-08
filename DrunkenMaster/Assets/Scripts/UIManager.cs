@@ -11,8 +11,12 @@ public class UIManager : MonoBehaviour {
     public float score;
     public float distance;
 
-    int coins;
-    int diamonds;
+    [SerializeField]
+    float coins;
+    float diamonds;
+
+    int coinsOld;
+    int diamondsOld;
 
     bool gameOver;
 
@@ -37,9 +41,27 @@ public class UIManager : MonoBehaviour {
         currentScene = SceneManager.GetActiveScene();
         gameOver = false;
 
+        coins = 0;
+        diamonds = 0;
+
         uiManager = GameObject.Find("UIManager");
 
         highScoreText.text = "High Score: " + PlayerPrefs.GetInt("Highscore");
+        coinText.text = "x " + PlayerPrefs.GetInt("coins");
+        diamondText.text = "x " + PlayerPrefs.GetInt("diamonds");
+
+        if (!PlayerPrefs.HasKey("coins"))
+        {
+            PlayerPrefs.SetInt("coins", 0);
+        }
+
+        if (!PlayerPrefs.HasKey("diamonds"))
+        {
+            PlayerPrefs.SetInt("diamonds", 0);
+        }
+
+        coinsOld = PlayerPrefs.GetInt("coins");
+        diamondsOld = PlayerPrefs.GetInt("diamonds");
     }
 	
 	// Update is called once per frame
@@ -88,10 +110,16 @@ public class UIManager : MonoBehaviour {
     {
         Time.timeScale = 0;
 
+        coins = score / 100f;
+
         if ((int)score > PlayerPrefs.GetInt("Highscore", (int)score))
         {
             PlayerPrefs.SetInt("Highscore", (int)score);
+            diamonds = 1;
         }
+
+        PlayerPrefs.SetInt("coins", (int)coins + coinsOld);
+        PlayerPrefs.SetInt("diamonds", (int)diamonds);
 
         foreach (Button button in buttons)
         {
