@@ -56,7 +56,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100322}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.01452212, y: 0.099857844, z: -1.4899337}
+  m_LocalPosition: {x: 0.055606738, y: 0.09985785, z: -1.557143}
   m_LocalScale: {x: 0.83871007, y: 0.83871007, z: 0.83871007}
   m_Children:
   - {fileID: 410668}
@@ -151,6 +151,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiManager: {fileID: 0}
+  performComboNum: 3
+  comboTime: 2
 --- !u!114 &11473572
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -163,6 +165,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
+  spawn: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

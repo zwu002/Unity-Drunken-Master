@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour {
 
     Scene currentScene;
+    public GameObject drinkingStreakSprite;
+    public GameObject kongfuComboSprite;
 
     public float drunkness;
     public float score;
@@ -87,7 +89,12 @@ public class UIManager : MonoBehaviour {
         }
     }
 
-    public void scoreUpdate()
+    public void hitPunk()
+    {
+        score += 50;
+    }
+
+    public void collectDrink()
     {
         score += 100;
     }
@@ -106,6 +113,18 @@ public class UIManager : MonoBehaviour {
     {
         drunkness -= 70;
         score -= 800;
+    }
+
+    public void DrinkingStreak()
+    {
+        score += 300;
+        Instantiate(drinkingStreakSprite, new Vector3(0, 0.3f, -1.8f), Quaternion.identity);
+    }
+
+    public void KongfuCombo()
+    {
+        score += 200;
+        Instantiate(kongfuComboSprite, new Vector3(0, 0.3f, -1.8f), Quaternion.identity);
     }
 
     public void Gameover ()

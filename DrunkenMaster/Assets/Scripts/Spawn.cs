@@ -4,6 +4,7 @@ using System.Collections;
 public class Spawn : MonoBehaviour {
 
     public GameObject[] spawnObstacle;
+    GameObject uiManager;
 
     public int randomPos;
     public float pos;
@@ -15,13 +16,43 @@ public class Spawn : MonoBehaviour {
     float speedupIndex;
     int obstacleIndex;
 
-	void Start () {
+    // Drinking Streak Detection
+    int comboNumDrink;
+    public int performComboNumDrink;
+
+    public float comboTimeDrink;
+    float previousTimeDrink;
+
+    // Kongfu Combo Detection
+    [SerializeField]
+    int comboNumKF;
+    public int performComboNumKF;
+
+    public float comboTimeKF;
+    float previousTimeKF;
+
+
+    void Start () {
         timer = 1f;
         speedupIndex = 0;
         universalSpeed = 1;
-	}
+        uiManager = GameObject.Find("UIManager");
+    }
 	
 	void Update () {
+
+        // Combos detection
+        if (Time.time - previousTimeDrink >= comboTimeDrink)
+        {
+            comboNumDrink = 0;
+        }
+
+        if (Time.time - previousTimeKF >= comboTimeKF)
+        {
+            comboNumKF = 0;
+        }
+
+
         timer -= Time.deltaTime;
         if (timer <= 0)
         {
@@ -63,5 +94,53 @@ public class Spawn : MonoBehaviour {
     void Speeddown()
     {
         universalSpeed -= 0.2f;
+    }
+
+    public void DetectDrinkingStreak()
+    {
+        if (comboNumDrink == 0)
+        {
+            comboNumDrink++;
+            previousTimeDrink = Time.time;
+        }
+        else if (comboNumDrink > 0 && comboNumDrink < performComboNumDrink)
+        {
+            comboNumDrink++;
+        }
+        else if (comboNumDrink >= performComboNumDrink && (Time.time - previousTimeDrink) < comboTimeDrink)
+        {
+            uiManager.GetComponent<UIManager>().DrinkingStreak();
+            comboNumDrink = 0;
+            previousTimeDrink = Time.time;
+        }
+        else if (comboNumDrink >= performComboNumDrink && (Time.time - previousTimeDrink) >= comboTimeDrink)
+        {
+            comboNumDrink = 0;
+            previousTimeDrink = Time.time;
+        }
+    }
+
+    public void DetectKongfuCombo()
+    {
+        if (comboNumKF == 0)
+        {
+            comboNumKF++;
+            previousTimeKF = Time.time;
+        }
+        else if (comboNumKF > 0 && comboNumKF < performComboNumKF)
+        {
+            comboNumKF++;
+        }
+        else if (comboNumKF >= performComboNumKF && (Time.time - previousTimeKF) < comboTimeKF)
+        {
+            uiManager.GetComponent<UIManager>().KongfuCombo();
+            comboNumKF = 0;
+            previousTimeKF = Time.time;
+        }
+        else if (comboNumKF >= performComboNumKF && (Time.time - previousTimeKF) >= comboTimeKF)
+        {
+            comboNumKF = 0;
+            previousTimeKF = Time.time;
+        }
     }
 }

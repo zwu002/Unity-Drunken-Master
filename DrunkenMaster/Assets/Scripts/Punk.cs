@@ -5,14 +5,23 @@ public class Punk : MonoBehaviour {
 
     public GameObject uiManager;
 
+    int comboNum;
+    public int performComboNum;
+
+    public float comboTime;
+    float previousTime;
+
     void Start () {
         uiManager = GameObject.Find("UIManager");
+
+        comboNum = 0;
+        previousTime = Time.time;
     }
 	
 	// Update is called once per frame
 	void Update () {
-	
-	}
+
+    }
 
     void OnTriggerEnter(Collider col)
     {
@@ -20,8 +29,9 @@ public class Punk : MonoBehaviour {
         {
             gameObject.SetActive(false);
 
-            uiManager.GetComponent<UIManager>().scoreUpdate();
+            uiManager.GetComponent<UIManager>().hitPunk();
             uiManager.GetComponent<UIManager>().drunknessminus();
+            uiManager.GetComponent<Spawn>().DetectKongfuCombo();
         }
     }
 }
