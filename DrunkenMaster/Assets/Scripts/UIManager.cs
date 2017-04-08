@@ -38,6 +38,8 @@ public class UIManager : MonoBehaviour {
         gameOver = false;
 
         uiManager = GameObject.Find("UIManager");
+
+        highScoreText.text = "High Score: " + PlayerPrefs.GetInt("Highscore");
     }
 	
 	// Update is called once per frame
@@ -48,7 +50,6 @@ public class UIManager : MonoBehaviour {
         scoreText.text = "Score: " + (int) score;
         distanceText.text = "Distance: " + (int) distance;
         drunknessText.text = "Drunkness: " + (int) drunkness;
-        highScoreText.text = "High Score: " + PlayerPrefs.GetInt("HighScore");
         drunkness -= Time.deltaTime;
 
         if (drunkness <= 0 || drunkness >= 100)
@@ -87,7 +88,10 @@ public class UIManager : MonoBehaviour {
     {
         Time.timeScale = 0;
 
-        PlayerPrefs.SetInt("Highscore", (int)score);
+        if ((int)score > PlayerPrefs.GetInt("Highscore", (int)score))
+        {
+            PlayerPrefs.SetInt("Highscore", (int)score);
+        }
 
         foreach (Button button in buttons)
         {
