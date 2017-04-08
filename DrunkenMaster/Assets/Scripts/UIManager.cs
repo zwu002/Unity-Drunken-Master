@@ -115,7 +115,7 @@ public class UIManager : MonoBehaviour {
         if ((int)score > PlayerPrefs.GetInt("Highscore", (int)score))
         {
             PlayerPrefs.SetInt("Highscore", (int)score);
-            diamonds = 1;
+            diamonds = 5;
         }
 
         PlayerPrefs.SetInt("coins", (int)coins + coinsOld);
