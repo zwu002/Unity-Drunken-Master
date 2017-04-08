@@ -7,13 +7,10 @@ public class ObstacleMove : MonoBehaviour {
 
     Vector3 position;
 
-    Rigidbody rb;
-
     public GameObject spawn;
 
     // Use this for initialization
-    void Start () {
-        rb = GetComponent<Rigidbody>();
+    void Start () { 
 
         position = gameObject.transform.position;
 

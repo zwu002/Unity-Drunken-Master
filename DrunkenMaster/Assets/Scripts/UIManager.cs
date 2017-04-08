@@ -11,6 +11,9 @@ public class UIManager : MonoBehaviour {
     public float score;
     public float distance;
 
+    int coins;
+    int diamonds;
+
     bool gameOver;
 
     public Text scoreText;
@@ -19,6 +22,8 @@ public class UIManager : MonoBehaviour {
     public Text gameOverScoreText;
     public Text gameOverDistanceText;
     public Text highScoreText;
+    public Text coinText;
+    public Text diamondText;
 
     public Button[] buttons;
 
@@ -43,7 +48,13 @@ public class UIManager : MonoBehaviour {
         scoreText.text = "Score: " + (int) score;
         distanceText.text = "Distance: " + (int) distance;
         drunknessText.text = "Drunkness: " + (int) drunkness;
+        highScoreText.text = "High Score: " + PlayerPrefs.GetInt("HighScore");
         drunkness -= Time.deltaTime;
+
+        if (drunkness <= 0 || drunkness >= 100)
+        {
+            gameOver = true;
+        }
 
         if (gameOver == true)
         {
@@ -75,7 +86,14 @@ public class UIManager : MonoBehaviour {
     public void Gameover ()
     {
         Time.timeScale = 0;
-    }
+
+        PlayerPrefs.SetInt("Highscore", (int)score);
+
+        foreach (Button button in buttons)
+        {
+            button.gameObject.SetActive(true);
+        }
+}
 
     public void Pause()
     {
