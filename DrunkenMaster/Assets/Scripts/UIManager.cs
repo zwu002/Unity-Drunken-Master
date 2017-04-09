@@ -140,7 +140,7 @@ public class UIManager : MonoBehaviour {
         }
 
         PlayerPrefs.SetInt("coins", (int)coins + coinsOld);
-        PlayerPrefs.SetInt("diamonds", (int)diamonds);
+        PlayerPrefs.SetInt("diamonds", (int)diamonds + diamondsOld);
 
         foreach (Button button in buttons)
         {

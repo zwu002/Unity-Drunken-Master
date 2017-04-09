@@ -27,6 +27,21 @@ public class Menu : MonoBehaviour {
             PlayerPrefs.SetInt("diamonds", 0);
         }
 
+        if (!PlayerPrefs.HasKey("chooseUK"))
+        {
+            PlayerPrefs.SetInt("chooseUK", 0);
+        }
+
+        if (!PlayerPrefs.HasKey("chooseGerman"))
+        {
+            PlayerPrefs.SetInt("chooseGerman", 0);
+        }
+
+        if (!PlayerPrefs.HasKey("unlockGerman"))
+        {
+            PlayerPrefs.SetInt("unlockGerman", 0);
+        }
+
         coinsOld = PlayerPrefs.GetInt("coins");
         diamondsOld = PlayerPrefs.GetInt("diamonds");
 
@@ -52,6 +67,12 @@ public class Menu : MonoBehaviour {
         }
         else buttons[3].interactable = false;
 
+        if (PlayerPrefs.GetInt("diamonds") > 5 && PlayerPrefs.GetInt("unlockGerman") == 0)
+        {
+            buttons[6].interactable = true;
+        }
+        else buttons[6].interactable = false;
+
     }
 
     public void Exit()
@@ -76,5 +97,30 @@ public class Menu : MonoBehaviour {
         buttons[3].interactable = true;
         PlayerPrefs.SetInt("coins", coinsOld - 20);
         coinsOld = PlayerPrefs.GetInt("coins");
+    }
+
+    public void UnlockGerman()
+    {
+        PlayerPrefs.SetInt("unlockGerman", 1);
+        buttons[5].interactable = true;
+        buttons[6].interactable = false;
+        PlayerPrefs.SetInt("diamonds", diamondsOld - 5);
+        diamondsOld = PlayerPrefs.GetInt("diamonds");
+    }
+
+    public void ChooseUK()
+    {
+        PlayerPrefs.SetInt("chooseUK", 1);
+        PlayerPrefs.SetInt("chooseGerman", 0);
+        buttons[4].interactable = false;
+        buttons[5].interactable = true;
+    }
+
+    public void ChooseGerman()
+    {
+        PlayerPrefs.SetInt("chooseGerman", 1);
+        PlayerPrefs.SetInt("chooseUK", 0);
+        buttons[5].interactable = false;
+        buttons[4].interactable = true;
     }
 }
