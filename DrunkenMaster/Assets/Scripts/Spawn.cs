@@ -8,6 +8,8 @@ public class Spawn : MonoBehaviour {
     public GameObject spawnGerman;
     GameObject uiManager;
 
+    public AudioSource[] playsound;
+
     public int randomPos;
     public float pos;
     public float minPosZ;
@@ -121,6 +123,7 @@ public class Spawn : MonoBehaviour {
         else if (comboNumDrink >= performComboNumDrink && (Time.time - previousTimeDrink) < comboTimeDrink)
         {
             uiManager.GetComponent<UIManager>().DrinkingStreak();
+            playsound[1].Play();
             comboNumDrink = 0;
             previousTimeDrink = Time.time;
         }
@@ -145,6 +148,7 @@ public class Spawn : MonoBehaviour {
         else if (comboNumKF >= performComboNumKF && (Time.time - previousTimeKF) < comboTimeKF)
         {
             uiManager.GetComponent<UIManager>().KongfuCombo();
+            playsound[3].Play();
             comboNumKF = 0;
             previousTimeKF = Time.time;
         }

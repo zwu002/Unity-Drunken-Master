@@ -32,6 +32,7 @@ public class Beer : MonoBehaviour {
             uiManager.GetComponent<UIManager>().collectDrink();
             uiManager.GetComponent<UIManager>().drunknessplus();
             uiManager.GetComponent<Spawn>().DetectDrinkingStreak();
+            uiManager.GetComponent<Spawn>().playsound[0].Play();
 
         }
     }

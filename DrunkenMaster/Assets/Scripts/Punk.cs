@@ -32,6 +32,7 @@ public class Punk : MonoBehaviour {
             uiManager.GetComponent<UIManager>().hitPunk();
             uiManager.GetComponent<UIManager>().drunknessminus();
             uiManager.GetComponent<Spawn>().DetectKongfuCombo();
+            uiManager.GetComponent<Spawn>().playsound[2].Play();
         }
     }
 }
