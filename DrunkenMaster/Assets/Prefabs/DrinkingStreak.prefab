@@ -27,6 +27,7 @@ GameObject:
   - 212: {fileID: 21214824}
   - 54: {fileID: 5416392}
   - 65: {fileID: 6566456}
+  - 114: {fileID: 11493296}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -53,7 +54,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 166564}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.046751082, y: 0.099857844, z: -1.4988893}
+  m_LocalPosition: {x: -0.14672637, y: 0.39310905, z: -2.8391137}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 407512}
@@ -69,7 +70,7 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
@@ -103,6 +104,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11493296
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 178684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0ceb56c06382314a9d8767fb67b2d74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &21214824
 SpriteRenderer:
   m_ObjectHideFlags: 1
