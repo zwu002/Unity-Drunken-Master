@@ -4,6 +4,8 @@ using System.Collections;
 public class Spawn : MonoBehaviour {
 
     public GameObject[] spawnObstacle;
+    public GameObject spawnUK;
+    public GameObject spawnGerman;
     GameObject uiManager;
 
     public int randomPos;
@@ -37,6 +39,15 @@ public class Spawn : MonoBehaviour {
         speedupIndex = 0;
         universalSpeed = 1;
         uiManager = GameObject.Find("UIManager");
+
+        if (PlayerPrefs.GetInt("chooseUK") == 1)
+        {
+            Instantiate(spawnUK, new Vector3(-0.044f, 0.092f, -2.8f), Quaternion.identity);
+        }
+        else if (PlayerPrefs.GetInt("chooseGerman") == 1)
+        {
+            Instantiate(spawnGerman, new Vector3(-0.044f, 0.11f, -2.8f), Quaternion.identity);
+        }
     }
 	
 	void Update () {
