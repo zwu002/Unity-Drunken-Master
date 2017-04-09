@@ -50,29 +50,39 @@ public class Menu : MonoBehaviour {
             PlayerPrefs.SetInt("UnlockLevel2", 0);
         }
 
-        if (PlayerPrefs.GetInt("UnlockLevel2") == 0)
+        if (PlayerPrefs.GetInt("UnlockLevel2") == 1)
         {
-            buttons[1].interactable = false;
+            buttons[1].interactable = true;
         }
+        else buttons[1].interactable = false;
+
+        if (PlayerPrefs.GetInt("unlockGerman") == 1)
+        {
+            buttons[5].interactable = true;
+        }
+        else buttons[5].interactable = false;
     }
 
     // Update is called once per frame
     void Update () {
+
+        coinsOld = PlayerPrefs.GetInt("coins");
+        diamondsOld = PlayerPrefs.GetInt("diamonds");
+
         coinText.text = "x " + PlayerPrefs.GetInt("coins");
         diamondText.text = "x " + PlayerPrefs.GetInt("diamonds");
 
-        if (PlayerPrefs.GetInt("coins") > 20 && PlayerPrefs.GetInt("UnlockLevel2") == 0)
+        if (PlayerPrefs.GetInt("coins") >= 20 && PlayerPrefs.GetInt("UnlockLevel2") == 0)
         {
             buttons[3].interactable = true;
         }
         else buttons[3].interactable = false;
 
-        if (PlayerPrefs.GetInt("diamonds") > 5 && PlayerPrefs.GetInt("unlockGerman") == 0)
+        if (PlayerPrefs.GetInt("diamonds") >= 5 && PlayerPrefs.GetInt("unlockGerman") == 0)
         {
             buttons[6].interactable = true;
         }
         else buttons[6].interactable = false;
-
     }
 
     public void Exit()
@@ -113,7 +123,10 @@ public class Menu : MonoBehaviour {
         PlayerPrefs.SetInt("chooseUK", 1);
         PlayerPrefs.SetInt("chooseGerman", 0);
         buttons[4].interactable = false;
-        buttons[5].interactable = true;
+        if (PlayerPrefs.GetInt("unlockGerman") == 1)
+        {
+            buttons[5].interactable = true;
+        }
     }
 
     public void ChooseGerman()

@@ -48,9 +48,10 @@ public class UIManager : MonoBehaviour {
 
         uiManager = GameObject.Find("UIManager");
 
-        highScoreText.text = "High Score: " + PlayerPrefs.GetInt("Highscore");
-        coinText.text = "x " + PlayerPrefs.GetInt("coins");
-        diamondText.text = "x " + PlayerPrefs.GetInt("diamonds");
+        if (!PlayerPrefs.HasKey("Highscore"))
+        {
+            PlayerPrefs.SetInt("Highscore", 0);
+        }
 
         if (!PlayerPrefs.HasKey("coins"))
         {
@@ -61,6 +62,10 @@ public class UIManager : MonoBehaviour {
         {
             PlayerPrefs.SetInt("diamonds", 0);
         }
+
+        highScoreText.text = "High Score: " + PlayerPrefs.GetInt("Highscore");
+        coinText.text = "x " + PlayerPrefs.GetInt("coins");
+        diamondText.text = "x " + PlayerPrefs.GetInt("diamonds");
 
         coinsOld = PlayerPrefs.GetInt("coins");
         diamondsOld = PlayerPrefs.GetInt("diamonds");
@@ -133,7 +138,7 @@ public class UIManager : MonoBehaviour {
 
         coins = score / 100f;
 
-        if ((int)score > PlayerPrefs.GetInt("Highscore", (int)score))
+        if ((int)score > PlayerPrefs.GetInt("Highscore"))
         {
             PlayerPrefs.SetInt("Highscore", (int)score);
             diamonds = 5;

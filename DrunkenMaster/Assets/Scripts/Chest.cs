@@ -16,17 +16,18 @@ public class Chest : MonoBehaviour {
 
     void Start()
     {
+        if (!PlayerPrefs.HasKey("LastChestOpen"))
+        {
+            PlayerPrefs.SetString("LastChestOpen", DateTime.Now.Ticks.ToString());
+        }
+
         chestButton = GetComponent<Button>();
         lastChestOpen = ulong.Parse(PlayerPrefs.GetString("LastChestOpen"));
         chestTimer = GetComponentInChildren<Text>();
         uiManager = GameObject.Find("UIManager");
 
-        if (!IsChestReady())
-        {
+
             chestButton.interactable = false;
-            chestTimer.text = "Ready!";
-            return;
-        }
     }
 
     void Update()
@@ -37,25 +38,25 @@ public class Chest : MonoBehaviour {
             {
                 chestButton.interactable = true;
                 chestTimer.text = "Ready!";
-                return;
             }
+            else
+            {
+                // Set Timer
+                ulong diff = ((ulong)DateTime.Now.Ticks - lastChestOpen);
+                ulong m = diff / TimeSpan.TicksPerMillisecond;
+                float secondsLeft = (msToWait - m) / 1000;
 
-            // Set Timer
-            ulong diff = ((ulong)DateTime.Now.Ticks - lastChestOpen);
-            ulong m = diff / TimeSpan.TicksPerMillisecond;
-            float secondsLeft = (msToWait - m) / 1000;
+                string r = "";
+                // Hours
+                r += ((int)secondsLeft / 3600).ToString() + "h ";
+                secondsLeft -= ((int)secondsLeft / 3600) * 3600;
+                // Minutes
+                r += ((int)secondsLeft / 60).ToString("00") + "m ";
+                // Seconds
+                r += (secondsLeft % 60).ToString("00") + "s ";
 
-            string r = "";
-            // Hours
-            r += ((int)secondsLeft / 3600).ToString() + "h ";
-            secondsLeft -= ((int)secondsLeft / 3600) * 3600;
-            // Minutes
-            r += ((int)secondsLeft / 60).ToString("00") + "m ";
-            // Seconds
-            r += (secondsLeft % 60).ToString("00") + "s ";
-
-            chestTimer.text = r;
-
+                chestTimer.text = r;
+            }
         }
     }
 
@@ -68,7 +69,7 @@ public class Chest : MonoBehaviour {
 
         // Give player gold
         PlayerPrefs.SetInt("coins", 20 + uiManager.GetComponent<Menu>().coinsOld);
-        uiManager.GetComponent<Menu>().coinsOld = PlayerPrefs.GetInt("coins");
+        
 
     }
 
@@ -77,8 +78,6 @@ public class Chest : MonoBehaviour {
         ulong diff = ((ulong)DateTime.Now.Ticks - lastChestOpen);
         ulong m = diff / TimeSpan.TicksPerMillisecond;
         float secondsLeft = (msToWait - m) / 1000;
-
-        Debug.Log(secondsLeft);
 
         if (secondsLeft < 0.01f)
         {

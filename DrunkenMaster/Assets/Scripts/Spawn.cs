@@ -42,13 +42,13 @@ public class Spawn : MonoBehaviour {
         universalSpeed = 1;
         uiManager = GameObject.Find("UIManager");
 
-        if (PlayerPrefs.GetInt("chooseUK") == 1)
+        if (PlayerPrefs.GetInt("chooseGerman") == 1)
         {
-            Instantiate(spawnUK, new Vector3(-0.044f, 0.092f, -2.8f), Quaternion.identity);
+            Instantiate(spawnGerman, new Vector3(-0.044f, 0.092f, -2.8f), Quaternion.identity);
         }
-        else if (PlayerPrefs.GetInt("chooseGerman") == 1)
+        else
         {
-            Instantiate(spawnGerman, new Vector3(-0.044f, 0.11f, -2.8f), Quaternion.identity);
+            Instantiate(spawnUK, new Vector3(-0.044f, 0.11f, -2.8f), Quaternion.identity);
         }
     }
 	
