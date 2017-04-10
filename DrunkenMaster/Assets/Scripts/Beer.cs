@@ -5,6 +5,9 @@ public class Beer : MonoBehaviour {
 
     public GameObject uiManager;
 
+    public float point;
+    public float drunkness;
+
     int comboNum;
     public int performComboNum;
 
@@ -27,13 +30,14 @@ public class Beer : MonoBehaviour {
     {
         if (col.gameObject.tag == "Player")
         {
-            gameObject.SetActive(false);
-
+            uiManager.GetComponent<UIManager>().beerpoint = point;
+            uiManager.GetComponent<UIManager>().drunknesspoint = drunkness;
             uiManager.GetComponent<UIManager>().collectDrink();
             uiManager.GetComponent<UIManager>().drunknessplus();
             uiManager.GetComponent<Spawn>().DetectDrinkingStreak();
             uiManager.GetComponent<Spawn>().playsound[0].Play();
 
+            gameObject.SetActive(false);
         }
     }
 }

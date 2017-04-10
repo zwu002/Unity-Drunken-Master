@@ -1472,6 +1472,8 @@ MonoBehaviour:
   drunkness: 0
   score: 0
   distance: 0
+  beerpoint: 0
+  drunknesspoint: 0
   coins: 0
   coinsOld: 0
   diamondsOld: 0
@@ -1515,7 +1517,7 @@ MonoBehaviour:
   - {fileID: 128028, guid: 4764159e831cb2c40b634752c8771cfb, type: 2}
   - {fileID: 108502, guid: 2aa02f3b6cc43dd489c3b147414780a5, type: 2}
   - {fileID: 100322, guid: d25764c43fbd6ab48b2864d8e51d8bf3, type: 2}
-  - {fileID: 160022, guid: f446a66eb732fb24a9cb7194e9af5595, type: 2}
+  - {fileID: 107266, guid: fe0ad3f56b92f44468b76e9c9703b6ec, type: 2}
   spawnUK: {fileID: 167510, guid: e6c4db2bb07271b4aae7de7f1400ff33, type: 2}
   spawnGerman: {fileID: 192774, guid: 2a35a7f23cebbb14ea35c5e67d942393, type: 2}
   playsound:

@@ -13,6 +13,9 @@ public class UIManager : MonoBehaviour {
     public float score;
     public float distance;
 
+    public float beerpoint;
+    public float drunknesspoint;
+
     [SerializeField]
     float coins;
     float diamonds;
@@ -36,6 +39,8 @@ public class UIManager : MonoBehaviour {
     public GameObject uiManager;
 
 	void Start () {
+        beerpoint = 0;
+        drunknesspoint = 0;
         drunkness = 50;
         score = 0;
         distance = 0;
@@ -101,12 +106,12 @@ public class UIManager : MonoBehaviour {
 
     public void collectDrink()
     {
-        score += 100;
+        score += beerpoint;
     }
 
     public void drunknessplus()
     {
-        drunkness += 20;
+        drunkness += drunknesspoint;
     }
 
     public void drunknessminus()

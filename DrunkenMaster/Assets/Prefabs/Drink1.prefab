@@ -55,7 +55,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 160022}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.015398942, y: 0.0998579, z: -1.9060594}
+  m_LocalPosition: {x: 0.0235703, y: 0.09985781, z: -1.2385685}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 434830}
@@ -117,6 +117,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiManager: {fileID: 0}
+  point: 50
+  drunkness: 10
   performComboNum: 3
   comboTime: 2
 --- !u!114 &11456722
