@@ -104,9 +104,9 @@ public class Spawn : MonoBehaviour {
         universalSpeed += 0.2f;
     }
 
-    void Speeddown()
+    public void Speeddown()
     {
-        universalSpeed -= 0.2f;
+        universalSpeed = 1f;
     }
 
     public void DetectDrinkingStreak()

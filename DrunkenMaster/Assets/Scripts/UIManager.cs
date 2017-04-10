@@ -117,7 +117,7 @@ public class UIManager : MonoBehaviour {
     public void hitobs()
     {
         drunkness -= 70;
-        score -= 800;
+        uiManager.GetComponent<Spawn>().Speeddown();
     }
 
     public void DrinkingStreak()

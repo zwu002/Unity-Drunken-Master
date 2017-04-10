@@ -12,12 +12,10 @@ public class BarScript : MonoBehaviour {
 
     GameObject uiManager;
 
-	// Use this for initialization
 	void Start () {
         uiManager = GameObject.Find("UIManager");
     }
 	
-	// Update is called once per frame
 	void Update () {
         fillAmount = uiManager.GetComponent<UIManager>().drunkness / 100;
         HandleBar();
